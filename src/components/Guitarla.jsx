@@ -1,18 +1,25 @@
-export default function Guitarla(props) {
+export default function Guitarla({guitarra}) {
+
+    const { id, name, image, description, price } = guitarra
+
+    const dandoClick = (id) => {
+        console.log('click desde en boton de agregar al carrito', id)
+    }
 
     return (
     <>
             <div className="col-md-6 col-lg-4 my-4 row align-items-center">
                 <div className="col-4">
-                    <img className="img-fluid" src="./public/img/guitarra_01.jpg" alt="imagen guitarra" />
+                    <img className="img-fluid" src={`/img/${image}.jpg`} alt="imagen guitarra" />
                 </div>
                 <div className="col-8">
-                    <h3 className="text-black fs-4 fw-bold text-uppercase">Lukather</h3>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit quae labore odit magnam in autem nesciunt, amet deserunt</p>
-                    <p className="fw-black text-primary fs-3">$ {props.price}</p>
+                    <h3 className="text-black fs-4 fw-bold text-uppercase">{name}</h3>
+                    <p>{description}</p>
+                    <p className="fw-black text-primary fs-3">$ {price}</p>
                     <button 
                         type="button"
                         className="btn btn-dark w-100"
+                        onClick={() =>dandoClick(id)}
                     >Agregar al Carrito</button>
                 </div>
             </div>        
