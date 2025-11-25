@@ -15,10 +15,10 @@ const [ data, setData ] = useState(db)
         <h2 className="text-center">Nuestra Colección</h2>
 
         <div className="row mt-5">
-            {data.map( (guitarra) => 
+            {data.map( (popo) => 
                 <Guitarla
-                    key={guitarra.id}
-                    guitarra={guitarra}
+                    key={popo.id}
+                    guitarra={popo}
                 />    
             )}
         </div>
