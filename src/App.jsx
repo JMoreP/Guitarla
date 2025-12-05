@@ -6,6 +6,7 @@ import { db } from "./data/db"
 function App() {
    
 const [ data, setData ] = useState(db)
+const [ carrito, setCarrito ] = useState([])
 
   return (
     <>
@@ -15,10 +16,12 @@ const [ data, setData ] = useState(db)
         <h2 className="text-center">Nuestra Colección</h2>
 
         <div className="row mt-5">
-            {data.map( (popo) => 
+            {data.map( (minecrat) => 
                 <Guitarla
-                    key={popo.id}
-                    guitarra={popo}
+                    key={minecrat.id}
+                    guitarra={minecrat}
+                    carrito={carrito}
+                    setCarrito={setCarrito}
                 />    
             )}
         </div>

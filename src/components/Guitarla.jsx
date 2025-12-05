@@ -1,4 +1,4 @@
-export default function Guitarla({guitarra}) {
+export default function Guitarla({guitarra, setCarrito}) {
 
     const { id, name, image, description, price } = guitarra
 
@@ -15,6 +15,7 @@ export default function Guitarla({guitarra}) {
                     <button 
                         type="button"
                         className="btn btn-dark w-100"
+                        onClick={() => setCarrito(prevCarrito => [...prevCarrito, guitarra])}
                     >Agregar al Carrito</button>
                 </div>
             </div>        
