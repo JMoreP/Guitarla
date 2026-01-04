@@ -8,22 +8,34 @@ function App() {
 const [ data, setData ] = useState(db)
 const [ carrito, setCarrito ] = useState([])
 
+function addToCart(item) {
+    const itemExiste = carrito.findIndex( guitarra => guitarra.id === item.id)
+    if(itemExiste >= 0) {
+        const updateCarrito = [...carrito]
+        updateCarrito[itemExiste].quantity++
+        setCarrito(updateCarrito)
+    } else {
+        setCarrito([...carrito, { ...item, quantity: 1 }])
+    }
+}
+
   return (
     <>
     
-    <Header/>
+    <Header
+        carrito={carrito}
+    />
     <main className="container-xl mt-5">
         <h2 className="text-center">Nuestra Colección</h2>
 
         <div className="row mt-5">
-            {data.map( (minecrat) => 
+            {data.map( (guitarra) => (
                 <Guitarla
-                    key={minecrat.id}
-                    guitarra={minecrat}
-                    carrito={carrito}
-                    setCarrito={setCarrito}
+                    key={guitarra.id}
+                    guitarra={guitarra}
+                    addToCart={addToCart}
                 />    
-            )}
+            ))}
         </div>
     </main>
 
